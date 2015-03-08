@@ -18,4 +18,5 @@ ___
   + `Gruntfile.js`为grunt配置
 - `Gruntfile.js`文件实例
 ```
+见本例Gruntfile.js
 ```

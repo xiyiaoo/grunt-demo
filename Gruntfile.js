@@ -2,15 +2,15 @@
 
 module.exports = function(grunt) {
 
-  // Project configuration
+  // 基本配置
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       gruntfile: {
         options: {
-          jshintrc: '.jshintrc'
+          jshintrc: '.jshintrc' //校验配置
         },
-        src: 'Gruntfile.js'
+        src: 'Gruntfile.js' //被校验的文件
       },
       src: {
         options: {
@@ -40,17 +40,17 @@ module.exports = function(grunt) {
     }
   });
 
-  //注册build任务
+  //注册build任务(将多个任务合并为一个)
   grunt.registerTask('build', [
-    'jshint',
-    'concat:dist',
-    'uglify:dist'
+    'jshint', // jshint配置的全部(gruntfile+src)
+    'concat:dist', // concat配置的dist
+    'uglify:dist' // uglify配置的dist
   ]);
 
   //加载插件
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');//js校验
+  grunt.loadNpmTasks('grunt-contrib-concat');//文件合并
+  grunt.loadNpmTasks('grunt-contrib-uglify');//文件压缩
 
   //注册默认任务
   grunt.registerTask('default', ['build']);
